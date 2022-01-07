@@ -4,12 +4,12 @@ const toggleMenu = (status: boolean) => (dispatch: any) => {
   if (status) {
     dispatch({
       type: MenuType.OPEN,
-      payload: status,
+      payload: true,
     });
   } else {
     dispatch({
       type: MenuType.CLOSE,
-      payload: status,
+      payload: false,
     });
   }
 };
