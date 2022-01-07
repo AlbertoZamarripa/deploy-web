@@ -7,8 +7,8 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import MenuActions from "../../../redux/actions/statusBar";
 import { SidebarItem, SidebarItemProps } from "./SideBarItem";
 import { State } from "../../../redux/reducers";
 import { useGlobalStyles } from "../../../styles/global";
@@ -20,6 +20,7 @@ export interface SideBarProps {
 }
 export const SideBar = (props: SideBarProps): JSX.Element => {
   const globalClasses = useGlobalStyles();
+  const dispatch = useDispatch();
   const { status } = useSelector<State>((store) => store.menu) as any;
   const { isLoggedIn } = useSelector<State>((store) => store.auth) as any;
   const theme = useTheme();
@@ -30,6 +31,7 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
   }, [status]);
   const handleDrawerClose = () => {
     setOpen(false);
+    dispatch(MenuActions.toggleMenu(!status));
     if (props.onClose) {
       props.onClose();
     }

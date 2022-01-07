@@ -15,7 +15,7 @@ export default function (state = initialState, action: any) {
       };
     default:
       return {
-        status: true,
+        status: false,
       };
   }
 }

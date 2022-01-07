@@ -14,6 +14,6 @@ const toggleMenu = (status: boolean) => (dispatch: any) => {
   }
 };
 
-export const MenuActions = {
+export default {
   toggleMenu,
 };

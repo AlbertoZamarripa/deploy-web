@@ -5,7 +5,7 @@ import { Courses } from "./components/components/courses/Courses";
 import { SideBar, SideBarProps } from "./components/components/shared/SideBar";
 import { useGlobalStyles } from "./styles/global";
 import { State } from "./redux/reducers";
-import { MenuActions } from "./redux/actions/statusBar";
+import MenuActions from "./redux/actions/statusBar";
 import { Home, Assignment, Person } from "@material-ui/icons";
 import { ConfirmProvider } from "material-ui-confirm";
 import { SnackbarProvider } from "notistack";
