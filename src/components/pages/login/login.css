@@ -1,0 +1,7 @@
+.MuiOutlinedInput-root .MuiInputBase-input:focus .fieldset {
+  color: red;
+  border: 1px solid red;
+}
+.MuiOutlinedInput-root:focus {
+  color: red;
+}
