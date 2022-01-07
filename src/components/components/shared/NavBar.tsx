@@ -17,12 +17,12 @@ import ExitIcon from "@material-ui/icons/ExitToApp";
 import logo from "../../../assets/logo_2.png";
 import "./css/navBar.css";
 import UserActions from "../../../redux/actions/auth";
+import MenuActions from "../../../redux/actions/statusBar";
 export interface NavBarProps {
   onOpen?: () => void;
   onNavBarInit?: () => void;
   onLogOut?: () => void;
 }
-
 export const NavBar = (props: NavBarProps): JSX.Element => {
   const dispatch = useDispatch();
   const { status } = useSelector<State>((store) => store.menu) as any;
@@ -60,6 +60,7 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
   const handleDrawerOpen = () => {
     setOpen(true);
     if (props.onOpen) {
+      dispatch(MenuActions.toggleMenu(true));
       props.onOpen();
     }
   };
