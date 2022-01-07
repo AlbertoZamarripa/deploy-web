@@ -68,7 +68,7 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
     <AppBar
       position="fixed"
       className={clsx(globalClasses.appBar, {
-        [globalClasses.appBarShift]: ref.current,
+        [globalClasses.appBarShift]: status,
       })}
     >
       <Toolbar>
@@ -77,7 +77,7 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
           onClick={handleDrawerOpen}
           edge="start"
           className={clsx(globalClasses.menuButton, {
-            [globalClasses.hide]: ref.current,
+            [globalClasses.hide]: status,
           })}
         >
           <MenuIcon />

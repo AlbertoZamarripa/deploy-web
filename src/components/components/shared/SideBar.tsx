@@ -40,13 +40,13 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
       <Drawer
         variant="permanent"
         className={clsx(globalClasses.drawer, {
-          [globalClasses.drawerOpen]: ref.current,
-          [globalClasses.drawerClose]: !ref.current,
+          [globalClasses.drawerOpen]: status,
+          [globalClasses.drawerClose]: !status,
         })}
         classes={{
           paper: clsx({
-            [globalClasses.drawerOpen]: ref.current,
-            [globalClasses.drawerClose]: !ref.current,
+            [globalClasses.drawerOpen]: status,
+            [globalClasses.drawerClose]: !status,
           }),
         }}
       >
