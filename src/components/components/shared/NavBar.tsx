@@ -73,20 +73,17 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
       })}
     >
       <Toolbar>
-        {!status ? (
-          <IconButton
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(globalClasses.menuButton, {
-              [globalClasses.hide]: status,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-        ) : (
-          ""
-        )}
+        <IconButton
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          className={clsx(globalClasses.menuButton, {
+            [globalClasses.hide]: status,
+          })}
+        >
+          <MenuIcon />
+        </IconButton>
+
         <Grid>
           <img className={globalClasses.logo} src={logo} alt="Bosch Logo" />
         </Grid>
