@@ -21,7 +21,7 @@ export const useGlobalStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      background: "#242526",
+      backgroundColor: "#242526",
     },
     appBarShift: {
       marginLeft: drawerWidth,
@@ -30,6 +30,7 @@ export const useGlobalStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       }),
+      backgroundColor: "#242526",
     },
 
     menuButton: {
