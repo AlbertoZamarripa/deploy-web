@@ -1,6 +1,6 @@
 import { MenuType } from "../actions/generalActionTypes";
 
-const initialState = { status: false };
+const initialState = { status: true };
 
 export default function (state = initialState, action: any) {
   const { type } = action;
