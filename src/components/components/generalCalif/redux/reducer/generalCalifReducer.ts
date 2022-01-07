@@ -14,7 +14,6 @@ const initialState: ListCalifState = {
 
 export default (state = initialState, action: CalifActions): ListCalifState => {
   const { type } = action;
-  console.log("reducer");
   switch (type) {
     case GeneralCalifTypes.LIST_CALIF_REQUEST:
       return {
