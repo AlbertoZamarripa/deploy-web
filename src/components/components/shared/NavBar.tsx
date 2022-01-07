@@ -1,5 +1,5 @@
 import { useConfirm } from "material-ui-confirm";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { State } from "../../../redux/reducers";
@@ -30,6 +30,7 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
   const globalClasses = useGlobalStyles();
   const [open, setOpen] = useState(status);
   const confirm = useConfirm();
+  const ref = useRef(false);
   const user = JSON.parse(localStorage.getItem("user") as string);
   const history = useHistory();
 
@@ -39,6 +40,9 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
     }
   }, []);
 
+  useEffect(() => {
+    ref.current = status;
+  }, [status]);
   const Logout = () => {
     confirm({
       title: "Cerrar Sesión",
@@ -64,7 +68,7 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
     <AppBar
       position="fixed"
       className={clsx(globalClasses.appBar, {
-        [globalClasses.appBarShift]: status,
+        [globalClasses.appBarShift]: ref.current,
       })}
     >
       <Toolbar>
@@ -73,7 +77,7 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
           onClick={handleDrawerOpen}
           edge="start"
           className={clsx(globalClasses.menuButton, {
-            [globalClasses.hide]: status,
+            [globalClasses.hide]: ref.current,
           })}
         >
           <MenuIcon />

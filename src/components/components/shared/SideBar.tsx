@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -23,8 +23,11 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
   const { status } = useSelector<State>((store) => store.menu) as any;
   const { isLoggedIn } = useSelector<State>((store) => store.auth) as any;
   const theme = useTheme();
+  const ref = useRef(false);
   const [open, setOpen] = useState(status);
-
+  useEffect(() => {
+    ref.current = status;
+  }, [status]);
   const handleDrawerClose = () => {
     setOpen(false);
     if (props.onClose) {
@@ -37,13 +40,13 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
       <Drawer
         variant="permanent"
         className={clsx(globalClasses.drawer, {
-          [globalClasses.drawerOpen]: status,
-          [globalClasses.drawerClose]: !status,
+          [globalClasses.drawerOpen]: ref.current,
+          [globalClasses.drawerClose]: !ref.current,
         })}
         classes={{
           paper: clsx({
-            [globalClasses.drawerOpen]: status,
-            [globalClasses.drawerClose]: !status,
+            [globalClasses.drawerOpen]: ref.current,
+            [globalClasses.drawerClose]: !ref.current,
           }),
         }}
       >

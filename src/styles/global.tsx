@@ -21,7 +21,7 @@ export const useGlobalStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
-      backgroundColor: "#242526",
+      background: "#242526",
     },
     appBarShift: {
       marginLeft: drawerWidth,
@@ -30,7 +30,7 @@ export const useGlobalStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       }),
-      backgroundColor: "#242526",
+      background: "#242526",
     },
 
     menuButton: {
@@ -51,7 +51,7 @@ export const useGlobalStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       }),
-      backgroundColor: "#242526",
+      background: "#242526",
     },
     drawerClose: {
       transition: theme.transitions.create("width", {
@@ -63,7 +63,7 @@ export const useGlobalStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("sm")]: {
         width: theme.spacing(7) + 1,
       },
-      backgroundColor: "#242526",
+      background: "#242526",
     },
     toolbar: {
       display: "flex",
