@@ -1,7 +1,6 @@
 import { useConfirm } from "material-ui-confirm";
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import MenuActions from "../../../redux/actions/statusBar";
 import { useHistory } from "react-router-dom";
 import { State } from "../../../redux/reducers";
 import { useGlobalStyles } from "../../../styles/global";
@@ -60,7 +59,6 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
 
   const handleDrawerOpen = () => {
     setOpen(true);
-    dispatch(MenuActions.toggleMenu(true));
     if (props.onOpen) {
       props.onOpen();
     }

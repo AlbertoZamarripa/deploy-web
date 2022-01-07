@@ -59,7 +59,12 @@ function App() {
               dispatch(AuthActions.logout());
             }}
           />
-          <SideBar {...sidebarProps} />
+          <SideBar
+            {...sidebarProps}
+            onClose={() => {
+              dispatch(MenuActions.toggleMenu(false));
+            }}
+          />
           <Switch>
             <Route exact path="/list-asist/:id" component={Asistencia} />
             <Route
