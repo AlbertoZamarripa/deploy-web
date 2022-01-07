@@ -16,7 +16,7 @@ import { Students } from "./components/components/students/Students";
 import { GradeJob } from "./components/components/GradeJob/GradeJob";
 import { GeneralCalif } from "./components/components/generalCalif/GeneralCalif";
 import { Asistencia } from "./components/components/asistencia/Asistencia";
-
+import AuthActions from "./redux/actions/auth";
 function App() {
   const dispatch = useDispatch();
   const globalClasses = useGlobalStyles();
@@ -56,7 +56,7 @@ function App() {
               dispatch(MenuActions.toggleMenu(true));
             }}
             onLogOut={() => {
-              //dispatch(AuthActions.logout())
+              dispatch(AuthActions.logout());
             }}
           />
           <SideBar {...sidebarProps} />

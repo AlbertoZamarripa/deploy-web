@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -23,7 +23,7 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
   const { status } = useSelector<State>((store) => store.menu) as any;
   const { isLoggedIn } = useSelector<State>((store) => store.auth) as any;
   const theme = useTheme();
-  const [open, setOpen] = React.useState(status);
+  const [open, setOpen] = useState(status);
 
   const handleDrawerClose = () => {
     setOpen(false);
