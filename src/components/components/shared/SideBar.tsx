@@ -51,13 +51,17 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
         }}
       >
         <div className={globalClasses.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon style={{ fill: "#fff" }} />
-            ) : (
-              <ChevronLeftIcon style={{ fill: "#fff" }} />
-            )}
-          </IconButton>
+          {status ? (
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon style={{ fill: "#fff" }} />
+              ) : (
+                <ChevronLeftIcon style={{ fill: "#fff" }} />
+              )}
+            </IconButton>
+          ) : (
+            ""
+          )}
         </div>
         <Divider />
         <List>
