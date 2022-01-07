@@ -25,6 +25,9 @@ function App() {
     onClose: () => {
       dispatch(MenuActions.toggleMenu(false));
     },
+    onOpen: () => {
+      dispatch(MenuActions.toggleMenu(true));
+    },
     userRole: "MAESTRO",
     items: [
       {

@@ -8,15 +8,16 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
 import { SidebarItem, SidebarItemProps } from "./SideBarItem";
 import { State } from "../../../redux/reducers";
 import { useGlobalStyles } from "../../../styles/global";
-
+import MenuIcon from "@material-ui/icons/Menu";
 export interface SideBarProps {
   items: Array<SidebarItemProps>;
   userRole: string;
   onClose?: () => void;
+  onOpen?: () => void;
 }
 export const SideBar = (props: SideBarProps): JSX.Element => {
   const globalClasses = useGlobalStyles();
@@ -24,6 +25,7 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
   const { isLoggedIn } = useSelector<State>((store) => store.auth) as any;
   const theme = useTheme();
   const ref = useRef(false);
+
   const [open, setOpen] = useState(status);
   useEffect(() => {
     ref.current = status;
@@ -34,7 +36,12 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
       props.onClose();
     }
   };
-
+  const handleDrawerOpen = () => {
+    setOpen(true);
+    if (props.onOpen) {
+      props.onOpen();
+    }
+  };
   return isLoggedIn ? (
     <div>
       <Drawer
@@ -60,7 +67,16 @@ export const SideBar = (props: SideBarProps): JSX.Element => {
               )}
             </IconButton>
           ) : (
-            ""
+            <IconButton
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(globalClasses.menuButton, {
+                [globalClasses.hide]: status,
+              })}
+            >
+              <MenuIcon />
+            </IconButton>
           )}
         </div>
         <Divider />
