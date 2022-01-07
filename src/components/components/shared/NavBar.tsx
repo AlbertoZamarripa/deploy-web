@@ -67,6 +67,7 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
 
   return isLoggedIn ? (
     <AppBar
+      style={{ background: "#242526" }}
       position="fixed"
       className={clsx(globalClasses.appBar, {
         [globalClasses.appBarShift]: status,
