@@ -7,6 +7,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import HomeWorkActions from "./redux/actions/homework";
 import Delete from "@material-ui/icons/DeleteForever";
+import PlayListAdd from "@material-ui/icons/PlaylistAdd";
 import Update from "@material-ui/icons/Create";
 import ListAlt from "@material-ui/icons/ListAlt";
 import { useGlobalStyles } from "../../../styles/global";
@@ -207,7 +208,7 @@ export const Homeworks = () => {
                   //onClick={() => handleDelete(value.row.original)}
                   color="secondary"
                 >
-                  <Delete />
+                  <PlayListAdd />
                 </IconButton>
               </Link>
             </Fragment>

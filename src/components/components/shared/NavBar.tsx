@@ -93,7 +93,7 @@ export const NavBar = (props: NavBarProps): JSX.Element => {
           className={globalClasses.title}
           style={{ color: "white", marginLeft: "5px" }}
         >
-          NOMBRE APP
+          Administradores - Maestros
         </Typography>
 
         <Typography style={{ color: "white" }}>

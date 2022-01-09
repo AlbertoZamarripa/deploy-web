@@ -33,19 +33,13 @@ function App() {
       {
         icon: <Home style={{ fill: "#fff" }} />,
         url: "/courses",
-        text: "Test",
+        text: "Cursos",
         allowedRoles: ["MAESTRO"],
       },
       {
         icon: <Person style={{ fill: "#fff" }} />,
         url: "/students",
-        text: "Test",
-        allowedRoles: ["MAESTRO"],
-      },
-      {
-        icon: <Assignment style={{ fill: "#fff" }} />,
-        url: "/califications",
-        text: "Test",
+        text: "Estudiantes",
         allowedRoles: ["MAESTRO"],
       },
     ],
