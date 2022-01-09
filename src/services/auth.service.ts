@@ -1,11 +1,11 @@
 import axios from "axios";
-
+import { API_URL } from "../common/constants";
 class AuthService {
   login(email: string, password: string) {
     const data = { email, password };
     return axios({
       method: "post",
-      url: `http://localhost:3001/user/login`,
+      url: `${API_URL}/login`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
