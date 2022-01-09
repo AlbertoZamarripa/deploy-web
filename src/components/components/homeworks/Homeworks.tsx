@@ -10,6 +10,7 @@ import Delete from "@material-ui/icons/DeleteForever";
 import PlayListAdd from "@material-ui/icons/PlaylistAdd";
 import Update from "@material-ui/icons/Create";
 import ListAlt from "@material-ui/icons/ListAlt";
+import AssessmentOutlined from "@material-ui/icons/AssessmentOutlined";
 import { useGlobalStyles } from "../../../styles/global";
 import { useForm } from "react-hook-form";
 import { Add } from "@material-ui/icons";
@@ -226,7 +227,7 @@ export const Homeworks = () => {
       </IconButton>
       <Link to={`/calification-course/${id}`} style={{ float: "right" }}>
         <IconButton style={{ height: 40 }}>
-          <ListAlt style={{ color: "white" }} />
+          <AssessmentOutlined style={{ color: "white" }} />
         </IconButton>
       </Link>
       <Link to={`/list-asist/${id}`} style={{ float: "right" }}>
