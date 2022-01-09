@@ -5,7 +5,7 @@ class AuthService {
     const data = { email, password };
     return axios({
       method: "post",
-      url: `${API_URL}/login`,
+      url: `${API_URL}/user/login`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
