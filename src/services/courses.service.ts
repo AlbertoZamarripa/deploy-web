@@ -74,6 +74,17 @@ class CourseService {
         return response.data;
       });
   }
+
+  async deleteStudent(idStudent: string, idCourse: string) {
+    return await axios
+      .post(`${API_URL}/teacher/delete-student`, {
+        idStudent: idStudent,
+        idCourse: idCourse,
+      })
+      .then((response) => {
+        return response.data;
+      });
+  }
 }
 
 export default new CourseService();

@@ -1,8 +1,12 @@
 import asistService from "../../../../services/asist.service";
+import studentsService from "../../../../services/students.service";
 import {
   asistRequest,
   asistRequestError,
   asistRequestSuccess,
+  listAllAsistRequest,
+  listAllAsistRequestFail,
+  listAllAsistRequestSuccess,
   updateRequest,
   updateRequestFail,
   updateRequestSuccess,
@@ -33,7 +37,20 @@ export const updateAsist =
       }
     );
   };
+
+export const getListAll = (idCourse: string) => (dispatch: any) => {
+  dispatch(listAllAsistRequest());
+  return studentsService.getAllListAsist(idCourse).then(
+    (students) => {
+      dispatch(listAllAsistRequestSuccess(students));
+    },
+    (error) => {
+      dispatch(listAllAsistRequestFail(error));
+    }
+  );
+};
 export default {
   getListAsist,
   updateAsist,
+  getListAll,
 };

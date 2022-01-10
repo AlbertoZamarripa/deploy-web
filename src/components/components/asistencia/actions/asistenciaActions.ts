@@ -11,9 +11,18 @@ export interface UpdateAsistRequestSuccess extends ApiCallAction {
   students: IListAsistStudents[];
 }
 export type UpdateAsistRequestFail = ApiCallAction;
+
+export type ListAllAsistRequest = ApiCallAction;
+export interface ListAllAsistRequestSuccess extends ApiCallAction {
+  students: any;
+}
+export type ListAllAsistRequestFail = ApiCallAction;
 export type AsistActions = ListAsistRequest &
   ListAsistRequestSuccess &
   ListAsistRequestError &
   UpdateAsistRequest &
   UpdateAsistRequestSuccess &
-  UpdateAsistRequestFail;
+  UpdateAsistRequestFail &
+  ListAllAsistRequest &
+  ListAllAsistRequestSuccess &
+  ListAllAsistRequestFail;

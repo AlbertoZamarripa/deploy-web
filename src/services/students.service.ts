@@ -28,5 +28,13 @@ class StudentService {
         return response.data;
       });
   }
+
+  async getAllListAsist(idCourse: string) {
+    return axios
+      .get(`${API_URL}/teacher/get-list-asist-fin/${idCourse}`)
+      .then((response) => {
+        return response.data;
+      });
+  }
 }
 export default new StudentService();

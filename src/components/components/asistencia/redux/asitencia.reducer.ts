@@ -4,6 +4,7 @@ import { AsistState } from "../entities";
 
 const initialState: AsistState = {
   AsistList: [],
+  data: [],
   isInProgress: false,
 };
 
@@ -44,6 +45,26 @@ export default (state = initialState, action: AsistActions): AsistState => {
       };
 
     case AsistenciaTypes.UPDATE_STUDENT_ASIST_REQUEST_FAIL:
+      return {
+        ...state,
+        isInProgress: false,
+        error: action.error,
+      };
+
+    case AsistenciaTypes.GET_ALL_LIST_ASIST:
+      return {
+        ...state,
+        isInProgress: true,
+      };
+
+    case AsistenciaTypes.GET_ALL_LIST_ASIST_SUCCESS:
+      return {
+        ...state,
+        isInProgress: false,
+        data: action.students,
+      };
+
+    case AsistenciaTypes.GET_ALL_LIST_ASIST_FAIL:
       return {
         ...state,
         isInProgress: false,

@@ -45,7 +45,7 @@ export const GeneralCalif = () => {
   }, [idCourse]);
   useEffect(() => {
     studentListCalif.students.forEach((student, i) => {
-      arrayCSV[i] = {
+      /*arrayCSV[i] = {
         nombre: student.nombre,
         entregadas: student.entregadas,
         sinEntregar: student.sinEntregar,
@@ -58,8 +58,22 @@ export const GeneralCalif = () => {
       arrayCSV[i] = Object.assign(arrayCSV[i], {
         promedio: student.promedio,
       });
+*/
+      let datos = {
+        nombre: student.nombre,
+        entregadas: student.entregadas,
+        sinEntregar: student.sinEntregar,
+      };
+      arrayCSV[i] = datos;
+      student.listadoTareas.forEach(
+        (tarea) =>
+          (arrayCSV[i] = { ...arrayCSV[i], [tarea.name]: tarea.calificacion })
+      );
 
-      //arrayCSV[i] = { ...arrayCSV, ...calif };
+      arrayCSV[i] = Object.assign(arrayCSV[i], {
+        promedio: student.promedio,
+      });
+      console.log(arrayCSV);
       calif = [];
     });
     ref.current = arrayCSV;

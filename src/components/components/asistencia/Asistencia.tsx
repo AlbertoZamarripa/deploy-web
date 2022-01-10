@@ -25,6 +25,8 @@ import DateTimePicker from "@mui/lab/DateTimePicker";
 import { TextField } from "@mui/material";
 import { DatePicker } from "@mui/lab";
 import moment from "moment";
+import { CSVLink } from "react-csv";
+import Save from "@material-ui/icons/Save";
 export const Asistencia = () => {
   const { id } = useParams<{ id: string }>();
   const [value, setValue] = useState<Date | null>(new Date());
@@ -37,7 +39,7 @@ export const Asistencia = () => {
   const confirm = useConfirm();
   const { handleSubmit, register, errors } = useForm();
   const { enqueueSnackbar } = useSnackbar();
-  const { AsistList, editing, error } = useSelector<State>(
+  const { AsistList, editing, error, data } = useSelector<State>(
     (store) => store.asistencia
   ) as any;
   useEffect(() => {
@@ -45,8 +47,9 @@ export const Asistencia = () => {
     dispatch(
       AsistActions.getListAsist(id, moment(Date.now()).format("DD-MM-YYYY"))
     );
+    dispatch(AsistActions.getListAll(id));
   }, [id]);
-  useEffect(() => {}, [AsistList]);
+  useEffect(() => {}, [AsistList, data]);
   useEffect(() => {
     setfecha(moment(value).format("DD-MM-YYYY"));
   }, [value]);
@@ -131,6 +134,9 @@ export const Asistencia = () => {
     <main className={globalClasses.content}>
       <Fade in={true} timeout={700}>
         <div className={globalClasses.contentTable}>
+          <CSVLink data={data}>
+            <Save style={{ color: "white", float: "right" }} />
+          </CSVLink>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
               label="Fecha asistencias"

@@ -1,5 +1,8 @@
 import { IListAsistStudents } from "../entities";
 import {
+  ListAllAsistRequest,
+  ListAllAsistRequestFail,
+  ListAllAsistRequestSuccess,
   ListAsistRequest,
   ListAsistRequestError,
   ListAsistRequestSuccess,
@@ -38,5 +41,23 @@ export const updateRequestSuccess = (
 
 export const updateRequestFail = (error: Error): UpdateAsistRequestFail => ({
   type: AsistenciaTypes.UPDATE_STUDENT_ASIST_REQUEST_FAIL,
+  error,
+});
+
+export const listAllAsistRequest = (): ListAllAsistRequest => ({
+  type: AsistenciaTypes.GET_ALL_LIST_ASIST,
+});
+
+export const listAllAsistRequestSuccess = (
+  students: any
+): ListAllAsistRequestSuccess => ({
+  type: AsistenciaTypes.GET_ALL_LIST_ASIST_SUCCESS,
+  students,
+});
+
+export const listAllAsistRequestFail = (
+  error: Error
+): ListAllAsistRequestFail => ({
+  type: AsistenciaTypes.GET_ALL_LIST_ASIST_FAIL,
   error,
 });

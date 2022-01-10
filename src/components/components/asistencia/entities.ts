@@ -8,5 +8,6 @@ export interface IListAsistStudents {
 
 export interface AsistState extends ApiCallState {
   AsistList: IListAsistStudents[];
+  data?: any;
   editing?: ApiCallState & { course: IListAsistStudents };
 }
