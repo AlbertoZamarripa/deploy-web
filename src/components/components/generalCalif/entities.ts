@@ -24,4 +24,5 @@ export interface IListadoTareas {
 
 export interface ListCalifState extends ApiCallState {
   studentListCalif: IListCalifications;
+  data: any;
 }

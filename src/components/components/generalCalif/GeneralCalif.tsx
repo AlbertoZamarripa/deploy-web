@@ -27,7 +27,7 @@ export const GeneralCalif = () => {
   const ref = useRef([] as any);
   const { idCourse } = useParams<{ idCourse: string }>();
   const globlalStyles = useGlobalStyles();
-  const { studentListCalif } = useSelector<State>(
+  const { studentListCalif, data } = useSelector<State>(
     (store) => store.califications
   ) as any;
   interface prueba {
@@ -123,7 +123,7 @@ export const GeneralCalif = () => {
           Listado de estudiantes
         </h2>
         <IconButton>
-          <CSVLink data={arrayCSV}>
+          <CSVLink data={data}>
             <Save style={{ color: "white", float: "right" }} />
           </CSVLink>
           ;
