@@ -59,6 +59,7 @@ export const GeneralCalif = () => {
         promedio: student.promedio,
       });
 */
+      console.log("entra");
       let datos = {
         nombre: student.nombre,
         entregadas: student.entregadas,
@@ -122,7 +123,7 @@ export const GeneralCalif = () => {
           Listado de estudiantes
         </h2>
         <IconButton>
-          <CSVLink data={ref.current}>
+          <CSVLink data={arrayCSV}>
             <Save style={{ color: "white", float: "right" }} />
           </CSVLink>
           ;
