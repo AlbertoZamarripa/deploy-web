@@ -97,7 +97,7 @@ export const Asistencia = () => {
       },
 
       {
-        Header: "Estatus",
+        Header: "Cambiar estatus",
         id: "action",
         accessor: "idStudent",
         Cell: (value: { idStudent: string; row: any }) => {
