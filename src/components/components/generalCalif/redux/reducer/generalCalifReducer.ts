@@ -23,7 +23,7 @@ export default (state = initialState, action: CalifActions): ListCalifState => {
       };
     case GeneralCalifTypes.LIST_CALIF_REQUEST_SUCCESS:
       let arrayCSV = [] as any;
-      state.studentListCalif.students.forEach((student, i) => {
+      action.students.students.forEach((student, i) => {
         /*arrayCSV[i] = {
           nombre: student.nombre,
           entregadas: student.entregadas,
